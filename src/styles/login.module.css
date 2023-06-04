@@ -1,0 +1,141 @@
+.loginContainer{
+    width: 50%;
+    min-width: 340px;
+    display: flex;
+    height: 60vh;
+    margin: auto;
+    margin-top: 100px;
+    background-color: var(--sidebar-cards-color);
+    border-radius: 10px;
+
+}
+.loginContainer .left{
+  width: 50%;
+  border-right: 1px dotted var(--text-color);
+  height: 80%;
+  margin-top: 40px;
+  padding: 0px 20px;
+  padding-left: 30px;
+
+}
+.loginContainer .left img{
+    width: 50%;
+    display: inline-block;
+    
+}
+.loginContainer .left p{
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: justify;
+    color: var(--text-color);
+}
+
+.loginContainer .left small{
+    font-size: 12px;
+    color: var(--text-sec-color); 
+}
+.loginContainer .left a.btn{
+    background-color: var(--blue-color);
+    text-decoration: none;
+    color: var(--light-color);
+    font-size: 14px;
+    padding: 7px 10px;
+    display: inline-block;
+    margin-top: 15px;
+    border-radius: 3px;
+    outline: transparent;
+    border: none;
+    cursor: pointer;
+}
+.loginContainer .right{
+    margin-left: 30px;
+}
+
+.loginContainer .right h2{
+    margin-top: 40px;
+    font-size: 20px;
+    
+}
+.loginContainer .right form .inputDiv input{
+    background-color: var(--input-background-color);
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    border: none;
+    outline: transparent;
+    width: 100%;
+    border-radius: 3px;
+    color: var(--text-color);
+    font-size: 14px;
+}
+.loginContainer .right form button{
+    background-color: var(--blue-color);
+    color: var(--light-color);
+    font-size: 14px;
+    padding: 7px 10px;
+    display: inline-block;
+    border-radius: 3px;
+    outline: transparent;
+    border: none;
+    cursor: pointer;
+}
+.loginContainer .right small{
+    font-size: 12px;
+    color: var(--text-sec-color);
+}
+
+.loginContainer .right small a{
+    color: var(--blue-color);
+    text-decoration: none;
+}
+
+.dottedLine{
+    width: 100px;
+    border-top: 1px dotted var(--text-sec-color);
+    height: 1px;
+    margin: auto;
+    margin-top: 12px;
+}
+
+.authIcon{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    transform: translateX(15px);
+    margin-top: 10px;
+    width: 90px;
+
+}
+.authIcon div img{
+    cursor: pointer;
+}
+
+/* breakpoints and responsiveness */
+@media screen and (max-width: 1250px) {
+    .loginContainer .right form .inputDiv input{
+        width: 80%;
+    }
+    .dottedLine{
+        width: 80px;
+        
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .loginContainer{
+        width: 70%;
+        flex-direction: column;
+        height: auto;
+        margin-top: 40px;
+    }
+    .loginContainer .left{
+        border: none;
+        width: auto;
+    }
+    /* .loginContainer .left p{
+        text-align: center;
+    } */
+    .authIcon{
+        margin-bottom: 30px;
+    }
+}
