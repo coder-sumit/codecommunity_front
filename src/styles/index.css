@@ -9,6 +9,14 @@
   --light-color: #f6f6f6;
   --text-color: #e1e1e1;
   --text-sec-color: #BBBBBB;
+  --text-dark-light: #9b9898;
+  --bg-icon: #27282F;
+}
+/* css reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -23,7 +31,14 @@ body {
 }
 
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 0px;
 }

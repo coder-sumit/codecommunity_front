@@ -1,0 +1,73 @@
+.logoDiv{
+    display: flex;
+    padding-bottom: 20px;
+    border-bottom: 0.3px solid gray;
+}
+.logoDiv .mlogo{
+   display: none;
+}
+.logoDiv .logo{
+    height: 21px;
+}
+.home-icon{
+    fill: #fff;
+}
+
+.sideLinks{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    border-bottom: 0.1px solid rgb(56, 54, 54);
+}
+.sideLinks .link, .settingDiv .link{
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.trending{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 0.1px solid rgb(56, 54, 54);
+    
+}
+.trendingScroll{
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.trending h2{
+    font-size: 18px;
+    color: var(--text-color);
+}
+.trending .trendingCard{
+    background-color: var(--selected-tab-color);
+    padding: 5px 7px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.trending .trendingCard h3{
+    font-size: 13px;
+}
+.trending .trendingCard .trendingBottom{
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-dark-light);
+    margin-top: 7px;
+}
+
+.trending .trendingCard .trendingBottom span{
+    font-size: 12px;
+}
+.trending .trendingCard .trendingBottom small{
+    font-size: 10px;
+}
+
+.settingDiv{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+

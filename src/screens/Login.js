@@ -4,7 +4,7 @@ import logo from "../assets/images/logo.png";
 import google from "../assets/images/google.svg";
 import github from "../assets/images/github.svg";
 
-function LoginPage() {
+const LoginPage = ()=> {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

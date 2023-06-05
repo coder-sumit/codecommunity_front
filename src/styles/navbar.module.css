@@ -1,0 +1,85 @@
+.start{
+    color: var(--text-color);
+}
+.start h3{
+    cursor: pointer;
+}
+.homeIcon{
+   transform: translateY(1px);
+}
+
+.mid{
+    color: var(--text-sec-color);
+    
+}
+
+.mid .searchDiv{
+    position: relative;
+}
+.mid .searchDiv input{
+    width: 500px;
+    outline: transparent;
+    border: none;
+    padding: 7px 80px 7px 30px;
+    background-color: var(--input-background-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    font-size: 15px;
+}
+.mid .searchDiv .searchIcon{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    font-size: 18px;
+    color: var(--text-sec-color-color);
+}
+
+.mid .searchDiv .searchBtns{
+    position: absolute;
+    top: 7px;
+    bottom: 7px;
+    right: 7px;
+   border-left: 0.1px solid rgb(90, 88, 88);
+  padding-left: 4px;
+}
+.mid .searchDiv .searchBtns .icon{
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: var(--cards-color);
+    padding: 3px;
+    font-size: 22px;
+    border-radius: 50%;
+}
+
+.end{
+    display: flex;
+    color: var(--text-sec-color-color);
+}
+
+.end .icons{
+    margin-right: 10px;
+    background-color: var(--bg-icon);
+    padding: 7px;
+    font-size: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+.end .profDiv{
+    display: flex;
+    position: relative;
+    padding-right: 40px;
+    margin-left: 20px;
+}
+.end .profDiv p{
+    font-size: 14px;
+    margin-top: 4px;
+}
+.end .profDiv img{
+    width: 35px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: -6px;
+}
