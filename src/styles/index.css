@@ -27,15 +27,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
-  color: var(--light-color);
+  color: var(--light-color);overflow-y: hidden;
+
 }
-
-
-
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
 
 /* scroll bar */

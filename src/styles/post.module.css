@@ -1,0 +1,98 @@
+.postBox{
+    background-color: var(--sidebar-cards-color);
+    width: 90%;
+    min-width: 340px;
+    margin: auto;
+    margin-top: 25px;
+    transform: translateX(10px);
+    border-radius: 7px;
+}
+
+.postBox .postHeading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 17px;
+
+}
+.postBox .postHeading .left{
+    display: flex;
+    align-items: center;
+}
+.postBox .postHeading .left img{
+    width: 30px;
+    border-radius: 50%;
+}
+.postBox .postHeading .left p{
+    margin-left: 7px;
+    font-size: 15px;
+    color: var(--text-color);
+}
+.postBox .postHeading .right small{
+    color: var(--text-dark-light);
+}
+
+.postBox .postContent{
+    color: var(--text-sec-color);
+
+}
+.postBox .postContent p{
+    padding: 10px 17px;
+    font-size: 15px;
+
+}
+
+.postBox .postContent .editorContainer{
+    height: 200px;
+    overflow-y: scroll;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    position: relative;
+}
+.postBox .postContent .editorContainer .langLabel{
+   position: absolute;
+   right: 6px;
+   top: 6px;
+   background-color: var(--input-background-color);
+   padding: 4px 10px;
+   font-size: 13px;
+   border-radius: 14px;
+   cursor: pointer;
+   border-radius: 6px;
+   
+}
+.postBox .postContent .editorContainer .copyIcon{
+    position: absolute;
+    right: 8px;
+    top: 35px;
+    cursor: pointer;
+}
+.postBox .codeEditor{
+    background-color: black;
+    border-radius: 6px;
+}
+.postBox .postContent  .postImage{
+    width: 100%;
+    margin: auto;
+}
+.postBox .postContent  .postImage img{
+    width: 100%;
+    border-radius: 7px;
+}
+.postBox .postContent .icons{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 0.1px solid var(--selected-tab-color);
+}
+
+.postBox .postContent .icons .icon{
+    transform: translateY(3px);
+    font-size: 18px;
+}
+.postBox .postContent .icons div{
+    cursor: pointer;
+}

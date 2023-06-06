@@ -29,3 +29,17 @@
     align-items: center;
     justify-content: space-between;
 }
+.homeArea{
+    display: flex;
+    height: 90%;
+   
+}
+.postContainer{
+    width: 70%;
+    height: 90vh;
+    overflow-y: scroll;
+    padding-bottom: 100px;
+}
+/* .rightCol{
+    
+} */
