@@ -5,9 +5,13 @@ import {MdOutlineForum, MdPostAdd} from "react-icons/md";
 import {BiSearch} from "react-icons/bi";
 import {BsChatDots, BsFillBellFill, BsFillChatDotsFill} from "react-icons/bs";
 import profile from "../assets/images/profile.jpg";
+import { Outlet } from "react-router-dom";
 const Navbar = ()=>{
     return (
-        <>
+      <>
+      <div className={styles.rightBar}>
+        <div className={styles.navbar}>
+       
           <div className={styles.start}>
             <h3 className={styles.link}>
                 <FaHome  className={styles.homeIcon}/> <span>Home</span>
@@ -36,7 +40,10 @@ const Navbar = ()=>{
              </div>
           </div>
 
-        </>
+       </div>
+       </div>
+       <Outlet/>
+       </>
     )
 }
 

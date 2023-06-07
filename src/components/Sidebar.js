@@ -6,7 +6,9 @@ import {BsInfoCircleFill} from "react-icons/bs";
 import {MdForum} from "react-icons/md";
 import {FiSettings} from "react-icons/fi";
 const SideBar = ()=>(
-    <>
+    <div className={styles.sidebar}>
+    
+   
        
         <div className={styles.logoDiv}>
             <img src={mlogo} className={styles.mlogo} />
@@ -105,7 +107,7 @@ const SideBar = ()=>(
 
 
 
-    </>
+        </div> 
 )
 
 export default SideBar;

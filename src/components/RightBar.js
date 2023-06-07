@@ -2,7 +2,7 @@ import styles from "../styles/rightBar.module.css";
 import profile from "../assets/images/profile.jpg";
 const RightBar = ()=>{
   return (
-    <>
+    <div className={styles.rightCoderBar}>
     <div className={styles.recommendedCoders}>
         <h3>Recommended Coders</h3>
         <div className={styles.coderContainer}>
@@ -119,7 +119,7 @@ const RightBar = ()=>{
             
         </div>
     </div>
-    </>
+    </div>
   )
 }
 

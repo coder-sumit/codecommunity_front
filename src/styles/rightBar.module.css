@@ -63,3 +63,17 @@
     background-color: var(--cards-color);
     padding: 2px 8px;
 }
+
+/* responsive */
+@media screen and (max-width: 1050px) {
+    .recommendedCoders{
+        margin-right: 25px;
+        width: 220px;
+    }
+   }
+
+   @media screen and (max-width: 800px){
+    .recommendedCoders{
+        display: none;
+    }
+}

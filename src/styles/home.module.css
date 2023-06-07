@@ -1,23 +1,13 @@
 .homeMain{
     display: flex;
-}
-.sidebar{
-    background-color: aliceblue;
-    width: 20%;
-    min-width: 100px;
-    height: 100vh;
+    width: 80%;
     position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: var(--sidebar-cards-color);
-    padding: 27px 15px;
-    position: relative;
-    border-right: 0.1px solid var(--selected-tab-color);
+    right: 0px;
 }
 
+
 .rightBar{
-    width: 80%;
+    width: 100%;
 }
 .rightBar .navbar{
     width: 100%;
@@ -43,3 +33,32 @@
 /* .rightCol{
     
 } */
+
+
+/* responsive */
+@media screen and (max-width: 1050px) {
+    .postContainer{
+        height: 95vh;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .sidebar, .rightBar .navbar{
+        display: none;
+    }
+    .rightBar{
+        width: 100%;
+
+       
+    }
+    .postContainer{
+       width: 100%;
+       margin: auto;
+       height: 100vh;
+    }
+    .homeMain{
+        width: 100%;
+
+    
+    }
+}

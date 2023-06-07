@@ -1,3 +1,17 @@
+.sidebar{
+    background-color: aliceblue;
+    width: 20%;
+    min-width: 100px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--sidebar-cards-color);
+    padding: 27px 15px;
+    position: fixed;
+    border-right: 0.1px solid var(--selected-tab-color);
+}
 .logoDiv{
     display: flex;
     padding-bottom: 20px;
@@ -71,3 +85,19 @@
     flex-direction: column;
 }
 
+
+
+ @media screen and (max-width: 1050px) {
+    .logoDiv .mlogo{
+        display: block;
+        height: 36px;
+     }
+     .logoDiv .logo{
+         display: none;
+     }
+   }
+   @media screen and (max-width: 800px){
+    .sidebar, .rightBar .navbar{
+        display: none;
+    }
+   }

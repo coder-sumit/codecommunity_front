@@ -4,11 +4,8 @@ import { SideBar, Navbar, RightBar, CreatePost, Post} from "../components";
 
 const HomePage = ()=>{
     return (
-      <div className={styles.homeMain}>
-    <div className={styles.sidebar}>
-      <SideBar/>
-     </div> 
-
+    <div className={styles.homeMain}>
+      
      <div className={styles.rightBar}>
          <div className={styles.navbar}>
            <Navbar/>
@@ -26,7 +23,6 @@ const HomePage = ()=>{
          </div>
      </div>
      </div>
-
      </div>
     )
 }

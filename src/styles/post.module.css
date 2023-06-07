@@ -39,6 +39,7 @@
 .postBox .postContent p{
     padding: 10px 17px;
     font-size: 15px;
+    text-align: justify;
 
 }
 
@@ -95,4 +96,14 @@
 }
 .postBox .postContent .icons div{
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px){
+    .postBox{
+        transform: translateX(0);
+    }
+    .postBox .postContent p{
+        text-align: justify;
+    
+    }
 }

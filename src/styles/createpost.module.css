@@ -19,7 +19,7 @@
 
 .createPost .profInput input{
     width: 95%;
-    min-width: 310px;
+    min-width: 250px;
     margin-left: 14px;
     outline: transparent;
     border: none;
@@ -89,4 +89,16 @@
 
 .previewImage img{
     width: 100%;
+}
+
+@media screen and (max-width: 800px){
+    .createPost{
+        transform: translateX(0);
+    }
+    .previewImage{
+        margin-top: 20px;
+    }
+    .createPost{
+        margin-top: 70px;
+    }
 }
