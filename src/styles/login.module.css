@@ -32,7 +32,7 @@
 
 .loginContainer .left small{
     font-size: 12px;
-    color: var(--text-sec-color); 
+    color: var(--text-sec-color);
 }
 .loginContainer .left a.btn{
     background-color: var(--blue-color);
@@ -54,6 +54,7 @@
 .loginContainer .right h2{
     margin-top: 40px;
     font-size: 20px;
+    margin-bottom: 10px;
     
 }
 .loginContainer .right form .inputDiv input{

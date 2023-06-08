@@ -26,12 +26,12 @@ const customFetch = async(url, {body, ...customConfig})=>{
     try{
         const response = await fetch(url, config);
         const data = await response.json();
-        console.log(data);
 
         if(data.success){
             return {
                 data: data.data,
-                success: true
+                success: true,
+                message: data.message
             };
         }
 
@@ -49,3 +49,18 @@ const customFetch = async(url, {body, ...customConfig})=>{
         }
     }
 }
+
+const login = (username, password)=>{
+    return customFetch(API_URLS.login(), {
+        method: "POST",
+        body: {username, password,}
+    });
+}
+
+const me = (username, password)=>{
+    return customFetch(API_URLS.me(), {
+        method: "GET"
+    });
+}
+
+export {login, me};

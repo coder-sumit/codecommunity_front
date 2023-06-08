@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-evenly;
     color: var(--text-sec-color);
+    border-top: 0.1px solid var(--selected-tab-color);
 }
 
 @media screen and (min-width: 800px){

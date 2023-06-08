@@ -8,6 +8,7 @@
     justify-content: space-between;
     background-color: var(--cards-color);
     padding: 8px 20px;
+    border-bottom: 0.1px solid var(--selected-tab-color);
 }
 .mnavbar img.logo{
     height: 26px;

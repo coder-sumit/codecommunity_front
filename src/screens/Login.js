@@ -3,10 +3,14 @@ import styles from "../styles/login.module.css";
 import logo from "../assets/images/logo.png";
 import google from "../assets/images/google.svg";
 import github from "../assets/images/github.svg";
+import { useAuth } from '../hooks';
+import {toast } from 'react-toastify';
 
 const LoginPage = ()=> {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const auth = useAuth();
 
   const handleUsernameChange =(e)=>{
       setUsername(e.target.value);
@@ -16,11 +20,26 @@ const LoginPage = ()=> {
   }
 
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault();  
-    console.log(username, password);
-    setPassword("");
-    setUsername("");
+    setIsLoggingIn(true);
+
+    if(!username || !password){
+      setIsLoggingIn(false);
+      toast.error("user or pass can't be empty!")
+      return;
+    }
+   
+      let response = await auth.login(username, password);
+      
+      if(response.success){
+        toast.success("LoggedIn Successfully...");
+      }else{
+        toast.error(response.message);
+        setIsLoggingIn(false);
+        return;
+      }
+      
   }
 
    return (
@@ -57,7 +76,7 @@ const LoginPage = ()=> {
             placeholder='Password'
           />
         </div>
-        <button type="submit">Login</button>
+        <button  type="submit" disabled={isLoggingIn}>{isLoggingIn?'Logging In...': 'Login' }</button>
       </form> <br/>
       <small>Forget Password ? <a href="#">Recover...</a></small>
 

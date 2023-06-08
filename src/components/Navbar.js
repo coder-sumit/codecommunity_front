@@ -4,9 +4,25 @@ import {AiOutlineUser, AiOutlineBell} from "react-icons/ai";
 import {MdOutlineForum, MdPostAdd} from "react-icons/md";
 import {BiSearch} from "react-icons/bi";
 import {BsChatDots, BsFillBellFill, BsFillChatDotsFill} from "react-icons/bs";
-import profile from "../assets/images/profile.jpg";
+import userImg from "../assets/images/user.jpg";
 import { Outlet } from "react-router-dom";
+import {useAuth} from "../hooks";
+import { IMAGE_ROOT } from "../utils";
+
+
 const Navbar = ()=>{
+   let profileImage = userImg;
+   let user = useAuth().user;
+   let userName = 'user';
+   console.log(user);
+   if(user){
+      userName = user.username;
+      if(user.profile_pic){
+         profileImage = `${IMAGE_ROOT}/${user.profile_pic}`;
+      }
+   }
+   
+   
     return (
       <>
       <div className={styles.rightBar}>
@@ -35,8 +51,8 @@ const Navbar = ()=>{
              <BsFillChatDotsFill className={styles.icons}/>
              <BsFillBellFill className={styles.icons}/>
              <div className={styles.profDiv}>
-                <p>coder_sumit</p>
-                <img src={profile} alt="profile"></img>
+                <p>{userName}</p>
+                <img src={profileImage} alt={userName}></img>
              </div>
           </div>
 
