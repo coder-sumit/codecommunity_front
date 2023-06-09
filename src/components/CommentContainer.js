@@ -10,7 +10,7 @@ const CommentContainer = (props)=>{
   return (
     <div className={styles.comments}>
        {showAll ||  <Comment post={post} comment={comments[0]}/>}
-       {showAll &&  <>{comments.map((comment)=> <Comment post={post} comment={comment} /> )}</>}
+       {showAll &&  <>{comments.map((comment)=> <Comment key={comment.comment_id} post={post} comment={comment} /> )}</>}
       <div className={styles.viewAll}>
            <p onClick={handleShowComments}>
             

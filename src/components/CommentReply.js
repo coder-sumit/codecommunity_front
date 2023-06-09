@@ -1,13 +1,19 @@
 import styles from "../styles/comment.module.css";
-import profile from "../assets/images/profile.jpg";
+import { IMAGE_ROOT } from "../utils";
+import userImg from "../assets/images/user.jpg";
 
-const CommentReply = ()=>{
 
+const CommentReply = (props)=>{
+   const {commentReply} = props;
+   let userImage = userImg;
+   if(commentReply.avatar){
+      userImage = `${IMAGE_ROOT}/${commentReply.avatar}`;
+   }
    return (
       <div className={styles.comment} style={style}>
         <div className={styles.userInfo}>
-              <img src={profile}/>
-              <p>username: To add a "Copy to Clipboard" button in your code, you can utilize the navigator.clipboard API available in modern browsers</p>
+              <img src={userImage}/>
+              <p><b>{commentReply.username}</b>: {commentReply.text}</p>
         </div>
           
       </div>

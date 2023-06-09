@@ -14,7 +14,6 @@ const Comment = (props)=>{
     }
     const {post, comment} = props;
     let userProfImg = userImg;
-    console.log(post);
     if(comment.avatar){
       userProfImg = `${IMAGE_ROOT}/${comment.avatar}`;
     }
@@ -29,7 +28,7 @@ const Comment = (props)=>{
         </div>
           {replyOn &&  <CreateCommentReply post={post} comment={comment}/>}
 
-          {comment.commentReplyCount !==0 && comment.commentReplies.map((commentReply)=> <CommentReply post={post} comment={comment} commentReply = {commentReply}/>) }
+          {comment.commentReplyCount !==0 && comment.commentReplies.map((commentReply)=> <CommentReply key={commentReply.comment_reply_id} post={post} comment={comment} commentReply = {commentReply}/>) }
          
       </div>
    )

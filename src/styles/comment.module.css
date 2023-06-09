@@ -22,6 +22,9 @@
     font-size: 14px;
 
 }
+.comment .userInfo p{
+  text-align: left;
+}
 
 .comments .viewAll{
   border-top: 0.1px solid var(--selected-tab-color);

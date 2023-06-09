@@ -126,8 +126,13 @@ const makeComment = async(post_id, text)=>{
     body: {post_id, text,}
    })
 }
-   
+const makeCommentReply = async(post_id, comment_id, text)=>{
+    return customFetch(API_URLS.makeCommentReply(), {
+        method: "POST",
+        body: {post_id, comment_id, text}
+    })
+}
    
 
 
-export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment};
+export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment, makeCommentReply};
