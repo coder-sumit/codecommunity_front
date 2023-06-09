@@ -1,0 +1,68 @@
+.regFormCard{
+    width: 60%;
+    min-width: 360px;
+    background-color: var(--cards-color);
+    margin: auto;
+    margin-top: 40px;
+    color: var(--text-color);
+    padding: 20px 0;
+    border-radius: 7px;
+}
+.regFormCard h2{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.regFormCard form{
+    width: 80%;
+    margin: auto;
+}
+.regFormCard form .feildDiv{
+    margin-top: 15px;
+}
+.regFormCard form .feildDiv input, .regFormCard form .feildDiv select{
+   width: 100%;
+   background-color: var(--input-background-color);
+   outline: transparent;
+   border: none;
+   color: var(--text-color);
+   padding: 7px 20px;
+   border-radius: 4px;
+  
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+label{
+    font-size: 15px;
+}
+
+.submitBtn{
+    width: 100%;
+    padding: 7px 20px;
+    border-radius: 4px;
+    background-color: var(--blue-color);
+    outline: transparent;
+    border: none;
+    color: var(--text-color);
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.regFormCard p{
+    text-align: center;
+    margin-top: 10px;
+}
+.errMsg{
+    color: #CD1818;
+    margin-left: 20px;
+}
+.loginLink{
+    color: var(--blue-color);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 900px) {
+    .regFormCard h2{
+        font-size: 1.3rem;
+    }
+}

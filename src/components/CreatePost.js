@@ -4,13 +4,61 @@ import profile from "../assets/images/profile.jpg";
 import {BsImage, BsCodeSlash} from "react-icons/bs";
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import Compressor from 'compressorjs';
+import { post } from "../apis";
+import {toast} from "react-toastify";
+import userImg from "../assets/images/user.jpg";
+import {useAuth} from "../hooks";
+import { IMAGE_ROOT } from "../utils";
 
 const CreatePost = ()=>{
+    let profileImage = userImg;
+    let user = useAuth().user;
+  
+    if(user && user.profile_pic){
+      profileImage = `${IMAGE_ROOT}/${user.profile_pic}`;
+    }
+   
     const [showEditor, setShowEditor] = useState(false);
     const [language, setLanguage] = useState('js');
     const [selectedImage, setSelectedImage] = useState({ file: null, preview: null });
     const [code, setCode] = useState(null);
     const fileInputRef = useRef(null);
+    const [posting , setPosting] = useState(false);
+    const [caption, setCaption] = useState("");
+
+    const handlePost = async()=>{
+      if(!caption){
+        return toast.error("Caption Can't Be Empty...");
+      }
+       setPosting(true);
+       let finalCode = `${language}*!$!*${code}`;
+       let data = {};
+       if(code){
+         data.post_code = finalCode;
+       }
+       if(caption){
+        data.post_caption = caption;
+       }
+     
+      const formData = new FormData();
+      formData.append('data', JSON.stringify(data));
+      if(selectedImage.file){
+        formData.append('img', selectedImage.file);
+      }
+
+      let response = await post(formData);
+      if(response.success){
+           toast.success("Post created successfully...")
+      }else{
+        toast.error(response.message);
+      }
+      setCaption("");
+      setPosting(false);
+      setLanguage('js');
+      setSelectedImage({ file: null, preview: null });
+      setCode(null);
+      setShowEditor(false);
+    }
 
     const handleLanguage = (e)=>{
         setLanguage(e.target.value);
@@ -24,7 +72,7 @@ const CreatePost = ()=>{
            maxHeight: 600, 
            success(result) {
             const previewURL = URL.createObjectURL(result);
-            setSelectedImage({ result, preview: previewURL });
+            setSelectedImage({ file: result, preview: previewURL });
            },
            error(error) {
              console.error('Image compression error:', error);
@@ -41,11 +89,13 @@ const CreatePost = ()=>{
    }
 
 
+
+
     return (
        <div className={styles.createPost}>
             <div className={styles.profInput}>
-                <img src={profile}/>
-                <input placeholder="What's on your mind?"/>
+                <img src={profileImage}/>
+                <input value={caption} onChange={(e)=>{setCaption(e.target.value)}} placeholder="What's on your mind?"/>
             </div>
             <div className={styles.iconDiv}>
                <div className={styles.left}>
@@ -58,8 +108,8 @@ const CreatePost = ()=>{
                    <BsImage onClick={() => fileInputRef.current.click()} className={styles.icon}/>
                    <BsCodeSlash onClick={()=> {setShowEditor(!showEditor)}} className={styles.icon} />
                </div>
-               <button>
-                   Post
+               <button disabled={posting} onClick={handlePost}>
+                   {posting?"posting...": "Post"}
                </button>
             </div>
 

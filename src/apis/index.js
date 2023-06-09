@@ -19,6 +19,7 @@ const customFetch = async(url, {body, ...customConfig})=>{
         },
     }
 
+
     if(body){
         config.body = JSON.stringify(body);
     }
@@ -26,6 +27,7 @@ const customFetch = async(url, {body, ...customConfig})=>{
     try{
         const response = await fetch(url, config);
         const data = await response.json();
+        // console.log(data);
 
         if(data.success){
             return {
@@ -63,4 +65,69 @@ const me = (username, password)=>{
     });
 }
 
-export {login, me};
+const checkUsername = (username)=>{
+    return customFetch(API_URLS.usernameExists(username), {
+        method: "GET"
+    });
+}
+const checkMobile = (mobile)=>{
+    return customFetch(API_URLS.mobileExists(mobile), {
+        method: "GET"
+    });
+}
+
+const register = (body)=>{
+    return customFetch(API_URLS.register(), {
+        method: "POST",
+        body,
+    });
+}
+
+const post = async(formData)=>{
+   const token = window.localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
+  try{
+    const response = await fetch(API_URLS.post(), {
+        method: 'POST',
+        body: formData,
+        headers: {
+            Authorization:`Bearer ${token}`
+        }
+       });
+       let data = await response.json();
+       if(data.success){
+        return {
+            success: true
+        };
+    }
+
+    // throw new Error(data.message);
+    return {
+        message:data.message,
+        success: false
+    }
+    }catch(err){
+     // console.error(error);
+     return {
+        message: err.message,
+        success: false
+    }
+}
+}
+
+const getPosts = async(page, limit)=>{
+    return customFetch(API_URLS.getPosts(page, limit), {
+        method: "GET"
+    });
+}
+
+const makeComment = async(post_id, text)=>{
+   return customFetch(API_URLS.makeComment(), {
+    method: "POST",
+    body: {post_id, text,}
+   })
+}
+   
+   
+
+
+export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment};

@@ -1,5 +1,4 @@
-import {LoginPage }from "../screens";
-import { HomePage } from "../screens";
+import {LoginPage, HomePage, Register }from "../screens";
 import { SideBar, Navbar, MFooter, MNavbar} from "../components";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -10,7 +9,8 @@ const App = ()=> {
       { path: "/", element: <HomePage /> }
     ]},
    
-    { path: "/login", element:<LoginPage/>}
+    { path: "/login", element:<LoginPage/>},
+    { path: "/register", element:<Register/>}
   ]);
 
   return (

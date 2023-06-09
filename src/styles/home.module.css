@@ -27,12 +27,14 @@
 .postContainer{
     width: 70%;
     height: 90vh;
+    margin-top: 55px;
     overflow-y: scroll;
     padding-bottom: 100px;
+    /* z-index: -1; */
 }
-/* .rightCol{
-    
-} */
+.rightCol{
+    margin-top: 55px;
+}
 
 
 /* responsive */

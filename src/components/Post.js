@@ -6,39 +6,36 @@ import {BiCommentAdd} from "react-icons/bi";
 import {FaShareSquare} from "react-icons/fa";
 import {VscCopy} from "react-icons/vsc";
 import {CreateComment, CommentContainer} from "./";
+import { toast } from "react-toastify";
+import { IMAGE_ROOT } from "../utils";
+import userImg from "../assets/images/user.jpg";
 
-const Post = ()=>{
-    const code = `#include <iostream>
 
-    int main() {
-        double principal, rate, time, simpleInterest;
-    
-        // Input principal amount, rate, and time
-        std::cout << "Enter the principal amount: ";
-        std::cin >> principal;
-    
-        std::cout << "Enter the interest rate (in percentage): ";
-        std::cin >> rate;
-    
-        std::cout << "Enter the time period (in years): ";
-        std::cin >> time;
-    
-        // Calculate simple interest
-        simpleInterest = (principal * rate * time) / 100;
-    
-        // Print the result
-        std::cout << "The simple interest is: " << simpleInterest << std::endl;
-    
-        return 0;
+const Post = (props)=>{
+    const {post} = props;
+    let  code;
+    let language;
+    if(post.post_code){
+      code = post.post_code.split("*!$!*");
+      language = code[0];
+      code = code[1];
     }
-    `;
+    
+    let userProfImg = userImg;
+    if(post.avatar){
+      userProfImg = `${IMAGE_ROOT}/${post.avatar}`;
+    }
+    let postImg;
+    if(post.post_image){
+      postImg = `${IMAGE_ROOT}/${post.post_image}`;
+    }
 
     const handleCopyToClipboard = async () => {
       try {
         await navigator.clipboard.writeText(code);
-        alert("Code copied to clipboard!");
+        toast.info("Code copied to clipboard!");
       } catch (error) {
-        console.error("Failed to copy code to clipboard:", error);
+        toast.error("error while coping");
       }
     };
 
@@ -46,25 +43,20 @@ const Post = ()=>{
        <div className={styles.postBox}>
          <div className={styles.postHeading}>
             <div className={styles.left}>
-                  <img src={profile}/>
-                  <p>username</p>
+                  <img src={userProfImg}/>
+                  <p>{post.username}</p>
             </div>
             <div className={styles.right}>
-                <small>3 days ago</small>
+                <small>{post.timeBeforeCreated}</small>
             </div>
          </div>
 
          <div className={styles.postContent}>
-            <p>
-            Thank you for applying to the position of NodeJS developer.
-            As you can appreciate the large number of applications received, its not possible to go through each one of them in short time.
-            So we would like to invite the candidates who match below three criteria
-            1) Have done past internships in NodeJS 
-            2) Have experience of production API
-            </p>
+            {post.post_caption && <p>{post.post_caption}</p>}
 
-    <div className={styles.editorContainer}>
-        <CodeEditor
+        {code && 
+          <div className={styles.editorContainer}>
+          <CodeEditor
           value={code}
           language="cpp"
           data-color-mode="dark"
@@ -73,22 +65,22 @@ const Post = ()=>{
           padding={15}
           placeholder="Write Code Here..."
        />
-       <div className={styles.langLabel}>c++</div>
+       <div className={styles.langLabel}>{language}</div>
        <VscCopy className={styles.copyIcon} onClick={handleCopyToClipboard} />
-       </div>
+       </div>}
 
-      <div className={styles.postImage}>
-      <img src={profile} />
-      </div>
+     {postImg &&  <div className={styles.postImage}>
+      <img src={postImg} />
+      </div>}
 
       <div className={styles.icons}>
-        <div><AiOutlineHeart className={styles.icon}/> <span>441</span></div>
-        <div><BiCommentAdd className={styles.icon}/> <span>23</span></div>
+        <div><AiOutlineHeart className={styles.icon}/> <span>{post.likeCount}</span></div>
+        <div><BiCommentAdd className={styles.icon}/> <span>{post.commentCount}</span></div>
         <div><FaShareSquare className={styles.icon}/></div>
       </div>
 
-      <CreateComment/>
-      <CommentContainer/>
+      <CreateComment post = {post}/>
+      {post.commentCount !==0  && <CommentContainer post = {post} comments = {post.comments} />}
          </div>
 
        </div>

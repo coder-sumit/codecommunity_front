@@ -4,6 +4,7 @@ const initialState = {
     user: null,
     login: ()=>{},
     register: ()=>{},
+    logout: ()=>{},
     loading: true
 }
 

@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from "../styles/login.module.css";
 import logo from "../assets/images/logo.png";
 import google from "../assets/images/google.svg";
 import github from "../assets/images/github.svg";
 import { useAuth } from '../hooks';
 import {toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const LoginPage = ()=> {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const auth = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (auth.user) {
+      navigate("/"); // Redirect to home page if user is already authenticated
+    }
+  }, [auth.user, navigate]);
 
   const handleUsernameChange =(e)=>{
       setUsername(e.target.value);
@@ -34,6 +42,7 @@ const LoginPage = ()=> {
       
       if(response.success){
         toast.success("LoggedIn Successfully...");
+        navigate("/");
       }else{
         toast.error(response.message);
         setIsLoggingIn(false);
@@ -51,9 +60,9 @@ const LoginPage = ()=> {
             Social Media App for CODERS
           </p> 
           <small>Don't have an account ?</small> <br/>
-          <a href='#' className={styles.btn}>
+          <Link to='/register' className={styles.btn}>
             Register
-          </a>
+          </Link>
 
     
         </div>

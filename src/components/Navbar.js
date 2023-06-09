@@ -14,7 +14,6 @@ const Navbar = ()=>{
    let profileImage = userImg;
    let user = useAuth().user;
    let userName = 'user';
-   console.log(user);
    if(user){
       userName = user.username;
       if(user.profile_pic){
