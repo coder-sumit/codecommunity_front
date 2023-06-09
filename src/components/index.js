@@ -11,5 +11,5 @@ import CreateCommentReply from "./CreateCommentReply";
 import CommentReply from "./CommentReply";
 import MFooter from "./mobile/MFooter";
 import MNavbar from "./mobile/MNavbar";
-
-export {App, SideBar, Navbar, RightBar, CreatePost, Post, CreateComment, CommentContainer, Comment, CreateCommentReply, CommentReply, MFooter, MNavbar};
+import Loader from "./Loader";
+export {App, SideBar, Navbar, RightBar, CreatePost, Post, CreateComment, CommentContainer, Comment, CreateCommentReply, CommentReply, MFooter, MNavbar, Loader};

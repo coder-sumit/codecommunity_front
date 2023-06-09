@@ -99,6 +99,10 @@
     cursor: pointer;
 }
 
+.filledHeart{
+    color: #d62976;
+}
+
 @media screen and (max-width: 800px){
     .postBox{
         transform: translateX(0);

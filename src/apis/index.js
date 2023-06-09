@@ -33,7 +33,8 @@ const customFetch = async(url, {body, ...customConfig})=>{
             return {
                 data: data.data,
                 success: true,
-                message: data.message
+                message: data.message,
+                liked: data.liked
             };
         }
 
@@ -150,7 +151,14 @@ const getCommentReplyById = async(comment_reply_id)=>{
         method: "GET"
     });
 }
+
+const toggleLike = async(like_target_type, like_target_id)=>{
+    return customFetch(API_URLS.toggleLike(), {
+        method: "POST",
+        body: {like_target_type, like_target_id,}
+    });
+}
    
 
 
-export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment, makeCommentReply, getPostById, getCommentById, getCommentReplyById};
+export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment, makeCommentReply, getPostById, getCommentById, getCommentReplyById, toggleLike};

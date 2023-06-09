@@ -1,11 +1,12 @@
-.rightBar{
+/* .rightBar{
     width: 80%;
     position: fixed;
     top: 0;
     right: 0;
 }
-.rightBar .navbar{
-    width: 100%;
+*/
+.navbar{
+    width: 80%;
     height: 60px;
     background-color: var(--sidebar-cards-color);
     border-bottom: 0.1px solid var(--selected-tab-color);
@@ -13,8 +14,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 10;
+    /* z-index: 10; */
+    position: fixed;
+    right: 0;
 }
+
 .start{
     color: var(--text-color);
 }
@@ -89,11 +93,15 @@
     padding-right: 40px;
     margin-left: 20px;
 }
-.end .profDiv p{
+.end .profDiv a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+.end .profDiv a p{
     font-size: 14px;
     margin-top: 4px;
 }
-.end .profDiv img{
+.end .profDiv a img{
     width: 35px;
     border-radius: 50%;
     position: absolute;
@@ -122,7 +130,7 @@
   }
 
   @media screen and (max-width: 800px){
-    .sidebar, .rightBar .navbar{
+    .sidebar, .navbar{
         display: none;
     }
 }

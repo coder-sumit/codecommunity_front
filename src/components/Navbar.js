@@ -5,7 +5,7 @@ import {MdOutlineForum, MdPostAdd} from "react-icons/md";
 import {BiSearch} from "react-icons/bi";
 import {BsChatDots, BsFillBellFill, BsFillChatDotsFill} from "react-icons/bs";
 import userImg from "../assets/images/user.jpg";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import {useAuth} from "../hooks";
 import { IMAGE_ROOT } from "../utils";
 
@@ -14,8 +14,10 @@ const Navbar = ()=>{
    let profileImage = userImg;
    let user = useAuth().user;
    let userName = 'user';
+   let name = 'coder';
    if(user){
       userName = user.username;
+      name = user.name.split(" ")[0];
       if(user.profile_pic){
          profileImage = `${IMAGE_ROOT}/${user.profile_pic}`;
       }
@@ -24,12 +26,12 @@ const Navbar = ()=>{
    
     return (
       <>
-      <div className={styles.rightBar}>
         <div className={styles.navbar}>
        
           <div className={styles.start}>
-            <h3 className={styles.link}>
-                <FaHome  className={styles.homeIcon}/> <span>Home</span>
+            <h3 style={{textTransform: "capitalize"}} className={styles.link}>
+                {/* <FaHome  className={styles.homeIcon}/> <span>Home</span> */}
+                Welcome {name}
             </h3>
           </div>
 
@@ -50,14 +52,16 @@ const Navbar = ()=>{
              <BsFillChatDotsFill className={styles.icons}/>
              <BsFillBellFill className={styles.icons}/>
              <div className={styles.profDiv}>
+               <Link to="/profile">
                 <p>{userName}</p>
                 <img src={profileImage} alt={userName}></img>
+                </Link>
              </div>
           </div>
 
        </div>
-       </div>
-       <Outlet/>
+       
+       
        </>
     )
 }

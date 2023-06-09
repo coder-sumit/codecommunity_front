@@ -5,27 +5,29 @@ import {FaHome, FaUserCircle} from "react-icons/fa";
 import {BsInfoCircleFill} from "react-icons/bs";
 import {MdForum} from "react-icons/md";
 import {FiSettings} from "react-icons/fi";
+import { Link, NavLink } from "react-router-dom";
 const SideBar = ()=>(
     <div className={styles.sidebar}>
     
    
-       
+       <Link to="/">
         <div className={styles.logoDiv}>
             <img src={mlogo} className={styles.mlogo} />
             <img src={logo} className={styles.logo} />
         </div>
+        </Link>
        {/* Sidbar links */}
 
         <div className={styles.sideLinks}>
-            <a className={styles.link} href="#">
+            <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/">
                 <FaHome /> Home
-            </a>
-            <a className={styles.link} href="#">
+            </NavLink>
+            <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/forum">
                 <MdForum /> Forum
-            </a>
-            <a className={styles.link} href="#">
+            </NavLink>
+            <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/aboutme">
                 <BsInfoCircleFill /> About Me
-            </a>
+            </NavLink>
         </div>
 
         {/* Trending Posts */}
@@ -95,13 +97,13 @@ const SideBar = ()=>(
         <div className={styles.settingDiv}>
        
 
-        <a className={styles.link} href="#">
+        <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/settings">
                 <FiSettings /> Settings
-        </a>
+        </NavLink>
 
-        <a className={styles.link} href="#">
+        <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/profile">
                 <FaUserCircle /> Profile
-        </a>
+        </NavLink>
         
         </div>
 

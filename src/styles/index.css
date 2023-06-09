@@ -12,6 +12,10 @@
   --text-dark-light: #9b9898;
   --bg-icon: #27282F;
 }
+a{
+  text-decoration: none;
+  color: var(--text-color);
+}
 /* css reset */
 *{
   margin: 0;

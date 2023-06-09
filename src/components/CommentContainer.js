@@ -12,11 +12,9 @@ const CommentContainer = (props)=>{
        {showAll ||  <Comment setPosts={setPosts} post={post} comment={comments[0]}/>}
        {showAll &&  <>{comments.map((comment)=> <Comment key={comment.comment_id} post={post} comment={comment} setPosts={setPosts} /> )}</>}
       <div className={styles.viewAll}>
-           <p onClick={handleShowComments}>
-            
-            {showAll ||  <>View all Comments</>}
-            {showAll &&  <>Show Less</>}
-            </p>
+          {comments.length > 1 &&  <p onClick={handleShowComments}>
+            {showAll? 'Show Less': 'View all Comments'}
+            </p>}
       </div>
     </div>
   )

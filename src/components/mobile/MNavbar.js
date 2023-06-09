@@ -6,10 +6,13 @@ import profile from "../../assets/images/profile.jpg";
 // import {MdOutlineForum, MdPostAdd} from "react-icons/md";
 import {BiSearch} from "react-icons/bi";
 import { BsFillBellFill, BsInfoCircleFill} from "react-icons/bs";
+import { Link } from "react-router-dom";
 const MNavbar = ()=>{
      return (
         <div className={styles.mnavbar}>
+            <Link to="/">
              <img className={styles.logo} src={mlogo}/>
+             </Link>
              <div className={styles.searchDiv}>
                <BiSearch className={styles.searchIcon}/>
                <input placeholder="Explore Code Community..." type="text"/>
@@ -18,10 +21,13 @@ const MNavbar = ()=>{
 
              <div className={styles.end}>
              <BsFillBellFill className={styles.icons}/>
+             <Link to="/aboutme">
              <BsInfoCircleFill className={styles.icons} />
-             
+             </Link>
              <div className={styles.profDiv}>
+             <Link to="/profile">
                 <img src={profile} alt="profile"></img>
+            </Link>
              </div>
           </div>
 
