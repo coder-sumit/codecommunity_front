@@ -4,15 +4,16 @@ import profile from "../assets/images/profile.jpg";
 import {BsImage, BsCodeSlash} from "react-icons/bs";
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import Compressor from 'compressorjs';
-import { post } from "../apis";
+import { post, getPostById } from "../apis";
 import {toast} from "react-toastify";
 import userImg from "../assets/images/user.jpg";
 import {useAuth} from "../hooks";
 import { IMAGE_ROOT } from "../utils";
 
-const CreatePost = ()=>{
+const CreatePost = (props)=>{
     let profileImage = userImg;
     let user = useAuth().user;
+    const {posts, setPosts}  = props;
   
     if(user && user.profile_pic){
       profileImage = `${IMAGE_ROOT}/${user.profile_pic}`;
@@ -48,7 +49,12 @@ const CreatePost = ()=>{
 
       let response = await post(formData);
       if(response.success){
-           toast.success("Post created successfully...")
+          let post = await getPostById(response.data._id);
+          post = post.data;
+         // Update the state by creating a new array with the new post prepended
+         setPosts((prevPosts) => [post, ...prevPosts]);
+         toast.success("Post created successfully...");
+
       }else{
         toast.error(response.message);
       }

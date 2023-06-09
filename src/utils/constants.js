@@ -14,12 +14,15 @@ export const API_URLS = {
     getPosts: (page, limit)=> `${API_ROOT}/posts/getPosts?page=${page}&limit=${limit}`,
     getUserPosts: (id)=> `${API_ROOT}/posts/getUserPosts/${id}`,
     post: ()=> `${API_ROOT}/posts/post`,
+    getPostById: (post_id)=> `${API_ROOT}/posts/getPostById/${post_id}`,
     editPost: ()=> `${API_ROOT}/posts/editPost`,
     deletePost: (id)=> `${API_ROOT}/posts/deletePost/${id}`,
     makeComment: ()=> `${API_ROOT}/comment/makeComment`,
+    getCommentById: (id)=> `${API_ROOT}/comment/getCommentById/${id}`,
     editComment: ()=> `${API_ROOT}/comment/editComment`,
     deleteComment: (id)=> `${API_ROOT}/comment/deleteComment/${id}`,
     makeCommentReply: ()=> `${API_ROOT}/commentReply/makeCommentReply`,
+    getCommentReplyById: (id)=> `${API_ROOT}/commentReply/getCommentReplyById/${id}`,
     editCommentReply: ()=> `${API_ROOT}/commentReply/editCommentReply`,
     deleteCommentReply: (id)=> `${API_ROOT}/commentReply/deleteCommentReply/${id}`,
     getForumQs: (page, limit)=> `${API_ROOT}/forumQ/getForumQs?page=${page}&limit=${limit}`,
@@ -33,6 +36,7 @@ export const API_URLS = {
     mobileExists: (mobile)=> `${API_ROOT}/validate/mobileExists/${mobile}`,
     usernameExists: (username)=> `${API_ROOT}/validate/usernameExists/${username}`,
     toggleLike: ()=> `${API_ROOT}/like/toggleLike`
+   
 }
 
 export const  LOCALSTORAGE_TOKEN_KEY = `__code_token_key__`;

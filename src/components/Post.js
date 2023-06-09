@@ -12,7 +12,7 @@ import userImg from "../assets/images/user.jpg";
 
 
 const Post = (props)=>{
-    const {post} = props;
+    const {post, setPosts} = props;
     let  code;
     let language;
     if(post.post_code){
@@ -79,8 +79,8 @@ const Post = (props)=>{
         <div><FaShareSquare className={styles.icon}/></div>
       </div>
 
-      <CreateComment post = {post}/>
-      {post.commentCount !==0  && <CommentContainer post = {post} comments = {post.comments} />}
+      <CreateComment post = {post} setPosts={setPosts}/>
+      {post.commentCount !==0  && <CommentContainer post = {post} comments = {post.comments} setPosts={setPosts}/>}
          </div>
 
        </div>

@@ -12,7 +12,7 @@ const Comment = (props)=>{
     const handleReply = ()=>{
         setReplyOn(!replyOn);
     }
-    const {post, comment} = props;
+    const {post, comment, setPosts} = props;
     let userProfImg = userImg;
     if(comment.avatar){
       userProfImg = `${IMAGE_ROOT}/${comment.avatar}`;
@@ -26,7 +26,7 @@ const Comment = (props)=>{
                <BsReplyAllFill /> Reply
             </div>
         </div>
-          {replyOn &&  <CreateCommentReply post={post} comment={comment}/>}
+          {replyOn &&  <CreateCommentReply setPosts={setPosts} post={post} comment={comment}/>}
 
           {comment.commentReplyCount !==0 && comment.commentReplies.map((commentReply)=> <CommentReply key={commentReply.comment_reply_id} post={post} comment={comment} commentReply = {commentReply}/>) }
          

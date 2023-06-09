@@ -1,5 +1,5 @@
 import styles from "../styles/home.module.css";
-import { SideBar, Navbar, RightBar, CreatePost, Post} from "../components";
+import { RightBar, CreatePost, Post} from "../components";
 import { useAuth } from "../hooks";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -30,10 +30,10 @@ const HomePage = ()=>{
         }
       }
       gettingPosts(page, limit);
-   }, [page]);
+   }, [page, limit]);
 
-   
-
+   useEffect(() => {
+  }, [posts]);
 
     return (
     <div className={styles.homeMain}>
@@ -42,9 +42,9 @@ const HomePage = ()=>{
 
          <div className={styles.homeArea}>
          <div className={styles.postContainer}>
-            <CreatePost/>
+            <CreatePost setPosts={setPosts}/>
             {posts.map((post)=>{
-               return <Post key={post.post_id} post={post}/> 
+               return <Post key={post.post_id} post={post} setPosts={setPosts}/> 
             })}
             
             

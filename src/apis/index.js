@@ -96,7 +96,8 @@ const post = async(formData)=>{
        let data = await response.json();
        if(data.success){
         return {
-            success: true
+            success: true,
+            data: data.post
         };
     }
 
@@ -114,6 +115,12 @@ const post = async(formData)=>{
 }
 }
 
+const getPostById = async(post_id)=>{
+    return customFetch(API_URLS.getPostById(post_id), {
+        method: "GET"
+    });
+}
+
 const getPosts = async(page, limit)=>{
     return customFetch(API_URLS.getPosts(page, limit), {
         method: "GET"
@@ -126,13 +133,24 @@ const makeComment = async(post_id, text)=>{
     body: {post_id, text,}
    })
 }
+const getCommentById = async(comment_id)=>{
+    return customFetch(API_URLS.getCommentById(comment_id), {
+        method: "GET"
+    });
+}
 const makeCommentReply = async(post_id, comment_id, text)=>{
     return customFetch(API_URLS.makeCommentReply(), {
         method: "POST",
         body: {post_id, comment_id, text}
     })
 }
+
+const getCommentReplyById = async(comment_reply_id)=>{
+    return customFetch(API_URLS.getCommentReplyById(comment_reply_id), {
+        method: "GET"
+    });
+}
    
 
 
-export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment, makeCommentReply};
+export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment, makeCommentReply, getPostById, getCommentById, getCommentReplyById};

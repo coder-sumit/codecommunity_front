@@ -6,11 +6,11 @@ const CommentContainer = (props)=>{
    const handleShowComments = ()=>{
      setShowAll(!showAll);
    }
-   const {post, comments} = props;
+   const {post, comments, setPosts} = props;
   return (
     <div className={styles.comments}>
-       {showAll ||  <Comment post={post} comment={comments[0]}/>}
-       {showAll &&  <>{comments.map((comment)=> <Comment key={comment.comment_id} post={post} comment={comment} /> )}</>}
+       {showAll ||  <Comment setPosts={setPosts} post={post} comment={comments[0]}/>}
+       {showAll &&  <>{comments.map((comment)=> <Comment key={comment.comment_id} post={post} comment={comment} setPosts={setPosts} /> )}</>}
       <div className={styles.viewAll}>
            <p onClick={handleShowComments}>
             
