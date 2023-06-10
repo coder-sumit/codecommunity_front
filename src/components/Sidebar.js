@@ -6,6 +6,7 @@ import {BsInfoCircleFill} from "react-icons/bs";
 import {MdForum} from "react-icons/md";
 import {FiSettings} from "react-icons/fi";
 import { Link, NavLink } from "react-router-dom";
+import {TrendingCard} from "./";
 const SideBar = ()=>(
     <div className={styles.sidebar}>
     
@@ -35,61 +36,11 @@ const SideBar = ()=>(
         <div className={styles.trending}>
             <h2>Trending</h2>
             <div className={styles.trendingScroll}>
-
-            
-            <div className={styles.trendingCard}>
-                <h3>
-                    This is the title of Trending Post
-                </h3>
-                <div className={styles.trendingBottom}>
-                    <span>
-                        username
-                    </span>
-                    <small>
-                        2 days ago
-                    </small>
-                </div>
-            </div>
-            <div className={styles.trendingCard}>
-                <h3>
-                    This is the title of Trending Post
-                </h3>
-                <div className={styles.trendingBottom}>
-                    <span>
-                        username
-                    </span>
-                    <small>
-                        2 days ago
-                    </small>
-                </div>
-            </div>
-            <div className={styles.trendingCard}>
-                <h3>
-                    This is the title of Trending Post
-                </h3>
-                <div className={styles.trendingBottom}>
-                    <span>
-                        username
-                    </span>
-                    <small>
-                        2 days ago
-                    </small>
-                </div>
-            </div>
-            
-            <div className={styles.trendingCard}>
-                <h3>
-                    This is the title of Trending Post
-                </h3>
-                <div className={styles.trendingBottom}>
-                    <span>
-                        username
-                    </span>
-                    <small>
-                        2 days ago
-                    </small>
-                </div>
-            </div>
+             <TrendingCard/>
+             <TrendingCard/>
+             <TrendingCard/>
+             <TrendingCard/>
+             <TrendingCard/>
             </div>
         </div>
 
@@ -97,9 +48,9 @@ const SideBar = ()=>(
         <div className={styles.settingDiv}>
        
 
-        <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/settings">
+        {/* <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/settings">
                 <FiSettings /> Settings
-        </NavLink>
+        </NavLink> */}
 
         <NavLink style={({isActive}) => isActive? {color: "#2d85f7"}: undefined} className={styles.link}  to="/profile">
                 <FaUserCircle /> Profile

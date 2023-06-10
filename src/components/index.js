@@ -12,4 +12,7 @@ import CommentReply from "./CommentReply";
 import MFooter from "./mobile/MFooter";
 import MNavbar from "./mobile/MNavbar";
 import Loader from "./Loader";
-export {App, SideBar, Navbar, RightBar, CreatePost, Post, CreateComment, CommentContainer, Comment, CreateCommentReply, CommentReply, MFooter, MNavbar, Loader};
+import RecommendedCoder from "./RecommendCoder";
+import FriendCoder from "./FriendCoder";
+import TrendingCard from "./TrendingCard";
+export {App, SideBar, Navbar, RightBar, CreatePost, Post, CreateComment, CommentContainer, Comment, CreateCommentReply, CommentReply, MFooter, MNavbar, Loader, RecommendedCoder, FriendCoder, TrendingCard};
