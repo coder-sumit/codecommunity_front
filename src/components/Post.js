@@ -1,5 +1,4 @@
 import styles from "../styles/post.module.css";
-import profile from "../assets/images/profile.jpg";
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import {AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 import {BiCommentAdd} from "react-icons/bi";
@@ -12,6 +11,7 @@ import userImg from "../assets/images/user.jpg";
 import { useAuth } from "../hooks";
 import { useState } from "react";
 import { toggleLike } from "../apis";
+import { Link } from "react-router-dom";
 
 
 const Post = (props)=>{
@@ -132,7 +132,10 @@ const Post = (props)=>{
        <div className={styles.postBox}>
          <div className={styles.postHeading}>
             <div className={styles.left}>
+                  <Link to={`/${post.username}`}>
                   <img src={userProfImg}/>
+                  </Link>
+                 
                   <p>{post.username}</p>
             </div>
             <div className={styles.right}>

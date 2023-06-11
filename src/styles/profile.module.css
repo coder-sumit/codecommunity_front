@@ -1,0 +1,89 @@
+.profileContainer{
+    position: fixed;
+    width: 80%;
+    top: 60px;
+    right: 0;
+    height: 90vh;
+    overflow-y: scroll;
+    color: var(--text-color);
+    padding-bottom: 50px;
+}
+.profNav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 280px;
+    align-items: center;
+    margin: auto;
+    background-color: var(--cards-color);
+    margin-top: 10px;
+    border-radius: 20px;
+}
+.profNav div{
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 7px 9px;
+}
+.profNav div:hover{
+    background-color: var(--input-background-color);
+}
+.profNav div.logout{
+    color: rgb(247, 44, 44);
+    font-weight: bold;
+}
+
+.profUserInfo, .postContainer {
+    width: 80%;
+    background-color: var(--cards-color);
+    padding: 20px 30px;
+    min-width: 360px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.profUserInfo p{
+    background-color: var(--input-background-color);
+    padding: 7px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.profPostContainer .postBox{
+    transform: translateX(0px);
+    border-radius: 7px;
+}
+
+.followBtn{
+    background-color: var(--blue-color);
+    color: var(--text-color);
+    display: block;
+    margin: auto;
+    outline: transparent;
+    border: none;
+    border-radius: 15px;
+    padding: 7px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.unFollowBtn{
+    background-color: var(--input-background-color);
+    color: var(--text-color);
+    display: block;
+    margin: auto;
+    outline: transparent;
+    border: none;
+    border-radius: 15px;
+    padding: 7px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 800px){
+    .profileContainer{
+        width: 100%;
+        height: 83vh;
+        top: 47px;
+    }
+  
+   }

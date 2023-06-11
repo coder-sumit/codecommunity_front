@@ -34,7 +34,8 @@ const customFetch = async(url, {body, ...customConfig})=>{
                 data: data.data,
                 success: true,
                 message: data.message,
-                liked: data.liked
+                liked: data.liked,
+                following: data.following
             };
         }
 
@@ -158,7 +159,41 @@ const toggleLike = async(like_target_type, like_target_id)=>{
         body: {like_target_type, like_target_id,}
     });
 }
-   
+
+const updateProfile = async(body)=>{
+    return customFetch(API_URLS.updateProfile(), {
+        method: "PUT",
+        body,
+    });
+}
+
+const profile = async(id)=>{
+    return customFetch(API_URLS.profile(id), {
+        method: "GET"
+    });
+}
+
+const followList = async(id)=>{
+    return customFetch(API_URLS.followList(id), {
+        method: "GET"
+    })
+}
+const followingList = async(id)=>{
+    return customFetch(API_URLS.followingList(id), {
+        method: "GET"
+    })
+}
+const getUserPosts = async(id)=>{
+    return customFetch(API_URLS.getUserPosts(id), {
+        method: "GET"
+    })
+} 
+
+const toggleFollow = async(id)=>{
+    return customFetch(API_URLS.toggleFollow(id), {
+        method: "PUT"
+    });
+}
 
 
-export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment, makeCommentReply, getPostById, getCommentById, getCommentReplyById, toggleLike};
+export {login, me, checkUsername, checkMobile, register, post, getPosts, makeComment, makeCommentReply, getPostById, getCommentById, getCommentReplyById, toggleLike, updateProfile, profile, followList,followingList,getUserPosts, toggleFollow};

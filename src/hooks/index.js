@@ -20,11 +20,12 @@ export const useProvideAuth = ()=>{
                 user = user.data;
                 setUser(user);
             }
+            setLoading(false);
         }
         fetchData();
 
         
-        setLoading(false);
+       
     }, []);
 
     const login = async(username, password)=>{
@@ -64,7 +65,9 @@ export const useProvideAuth = ()=>{
     }
 
     const logout = ()=>{
-       return removeItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
+       removeItemFromLocalStorage(LOCALSTORAGE_TOKEN_KEY);
+       setUser(null);
+       return;
     }
 
     return {

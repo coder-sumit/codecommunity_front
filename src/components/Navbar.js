@@ -52,7 +52,7 @@ const Navbar = ()=>{
              <BsFillChatDotsFill className={styles.icons}/>
              <BsFillBellFill className={styles.icons}/>
              <div className={styles.profDiv}>
-               <Link to="/profile">
+               <Link to={`/${userName}`}>
                 <p>{userName}</p>
                 <img src={profileImage} alt={userName}></img>
                 </Link>

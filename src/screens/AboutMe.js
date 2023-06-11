@@ -145,6 +145,10 @@ const AboutMe = ()=>{
         <p>- Login With Github</p>
         <p>- Notifications</p>
         <p>- Delete My Account</p>
+        <p>- Update Profile Picture</p>
+        <p>- Watch Followers</p>
+        <p>- Watch Following Users</p>
+        <p>- 404 Error Page</p>
 
 
         </div>

@@ -1,14 +1,10 @@
 import styles from "../styles/home.module.css";
 import { RightBar, CreatePost, Post, Loader } from "../components";
-import { useAuth } from "../hooks";
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { getPosts } from "../apis";
 import { toast } from "react-toastify";
 
 const HomePage = () => {
-  const navigate = useNavigate();
-  const auth = useAuth();
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(5);
@@ -16,11 +12,7 @@ const HomePage = () => {
   const containerRef = useRef(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!auth.user) {
-      navigate("/login");
-    }
-  }, [auth.user, navigate]);
+
 
   useEffect(() => {
     async function gettingPosts(page, limit) {

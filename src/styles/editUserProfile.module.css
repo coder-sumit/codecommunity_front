@@ -1,0 +1,32 @@
+.editUserProfile{
+    width: 80%;
+    background-color: var(--cards-color);
+    padding: 20px 30px;
+    min-width: 360px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.editUserProfile form{
+    display: flex;
+    flex-direction: column;
+}
+.editUserProfile input, .editUserProfile select{
+    background-color: var(--input-background-color);
+    padding: 7px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    outline: transparent;
+    border: none;
+    color: var(--text-sec-color);
+}
+.editUserProfile form button{
+    width: 120px;
+    background-color: var(--blue-color);
+    outline: transparent;
+    border: none;
+    color: var(--text-sec-color);
+    padding: 7px 0px;
+    border-radius: 6px;
+    margin: auto;
+}

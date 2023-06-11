@@ -7,7 +7,22 @@ import profile from "../../assets/images/profile.jpg";
 import {BiSearch} from "react-icons/bi";
 import { BsFillBellFill, BsInfoCircleFill} from "react-icons/bs";
 import { Link } from "react-router-dom";
+import userImg from "../../assets/images/user.jpg";
+import {useAuth} from "../../hooks";
+import { IMAGE_ROOT } from "../../utils";
+
 const MNavbar = ()=>{
+   let profileImage = userImg;
+   let user = useAuth().user;
+   let userName = 'user';
+   let name = 'coder';
+   if(user){
+      userName = user.username;
+      name = user.name.split(" ")[0];
+      if(user.profile_pic){
+         profileImage = `${IMAGE_ROOT}/${user.profile_pic}`;
+      }
+   }
      return (
         <div className={styles.mnavbar}>
             <Link to="/">
@@ -25,8 +40,8 @@ const MNavbar = ()=>{
              <BsInfoCircleFill className={styles.icons} />
              </Link>
              <div className={styles.profDiv}>
-             <Link to="/profile">
-                <img src={profile} alt="profile"></img>
+             <Link to={`/${userName}`}>
+                <img src={profileImage} alt={userName}></img>
             </Link>
              </div>
           </div>

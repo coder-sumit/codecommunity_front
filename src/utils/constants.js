@@ -9,6 +9,7 @@ export const API_URLS = {
     toggleBlock: (id)=> `${API_ROOT}/users/toggleBlock/${id}`,
     blockList: ()=> `${API_ROOT}/users/blockList`,
     followList: (id)=> `${API_ROOT}/users/followList/${id}`,
+    followingList: (id)=> `${API_ROOT}/users/followingList/${id}`,
     updateProfile: ()=> `${API_ROOT}/users/updateProfile`,
     updateAvatar: (id)=> `${API_ROOT}/users/updateAvatar/${id}`,
     getPosts: (page, limit)=> `${API_ROOT}/posts/getPosts?page=${page}&limit=${limit}`,
